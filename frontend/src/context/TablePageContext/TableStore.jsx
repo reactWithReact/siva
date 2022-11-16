@@ -39,7 +39,7 @@ const tableStoreReducer = (state, action) => {
 const TableStore = ({ children }) => {
   // The reducer hook will contain all the state which can be accessed throught the table page
   const [state, tableDispatch] = useReducer(tableStoreReducer, initialState);
- console.log(state)
+
   return (
     <TableStoreContext.Provider value={{ ...state, tableDispatch }}>
       {children}

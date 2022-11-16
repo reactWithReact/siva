@@ -6,11 +6,6 @@ export const ChartStoreContext = createContext();
 const initialState = {
 
     barChartData:[],
-    barChartCategories: [],
-    totalQuarterlyData: [],
-    chartObjectData: {},
-    selectedDataPoints: [],
-    stackedBarChartCategories: [],
     stackedData: []
 }
 

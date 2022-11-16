@@ -76,10 +76,11 @@ export const Action_SetTotalPages = (totalPages) => {
 
 export const Action_SetRecords = (records) => {
   return (state) => {
-    const totalPages = Math.ceil(!!state.filteredByBusinessUnitData.length ? state.filteredByBusinessUnitData.length/ records : state.sortableData.length/records);
+
+    const totalPages = Math.ceil(!!state.filteredByBusinessUnitData.length ? state.filteredByBusinessUnitData.length/ (Number.isNaN(records) ? 5: records) : state.sortableData.length/(Number.isNaN(records) ? 5: records));
     const currentPage =
       totalPages < state.currentPage ? totalPages : state.currentPage;
-    return { ...state, records, totalPages, currentPage };
+    return { ...state, records : Number.isNaN(records) ? 5: records, totalPages, currentPage };
   };
 };
 

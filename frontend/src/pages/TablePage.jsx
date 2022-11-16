@@ -69,6 +69,7 @@ const TablePage = () => {
                   tableDispatch(Action_ToggleField(field))
                 }
                 setRecordHandler={(records) => {
+
                   tableDispatch(Action_SetRecords(records));
                 }}
               />

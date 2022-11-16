@@ -87,20 +87,20 @@ export default function ApexChart({ setExpanded }) {
     legend: { show: false },
 
     colors,
-    states: {
-      normal: {
-        filter: {
-          type: 'desaturate'
-        }
-      },
-      active: {
-        allowMultipleDataPointsSelection: true,
-        filter: {
-          type: 'darken',
-          value: 1
-        }
-      }
-    },
+    // states: {
+    //   normal: {
+    //     filter: {
+    //       type: 'desaturate'
+    //     }
+    //   },
+    //   active: {
+    //     allowMultipleDataPointsSelection: true,
+    //     filter: {
+    //       type: 'darken',
+    //       value: 1
+    //     }
+    //   }
+    // },
     dataLabels: {
       enabled: true,
       textAnchor: 'start',

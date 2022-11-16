@@ -47,7 +47,7 @@ export const Action_empty_stackedData = () => {
     return (state) => {
         return {
             ...state,
-            stackedData: []
+            stackedData: [],
         };
     };
 };

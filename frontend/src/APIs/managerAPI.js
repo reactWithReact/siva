@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  Action_EmptyFilteredBusinessUnitData,
   Action_SetData,
   Action_SetManager,
   Action_SetPage,
@@ -26,6 +27,7 @@ export const getCustomers = async (managerId, tableDispatch, chartDispatch) => {
     // The Action_SetData function will return an anonymous function to the reducer of tableContext which when called will simply return the new State for the whole page
     
     chartDispatch(Action_empty_stackedData())
+    tableDispatch(Action_EmptyFilteredBusinessUnitData())
     chartDispatch(Action_barChartData(dashboardData.attribution.chart))
     tableDispatch(Action_SetData(customerData));
     tableDispatch(Action_SetTotalPages(Math.ceil(customerData.length / records)));

@@ -99,6 +99,16 @@ export const Action_SetFilteredByBusinessUnitData=(businessUnit)=>{
   };
 };
 
+export const Action_EmptyFilteredBusinessUnitData=()=>{
+
+  return (state)=>{
+
+    return{
+      ...state,
+      filteredByBusinessUnitData:[]
+    };
+  };
+};
 
 // for sorting the table
 export const Action_SortData = (sortField, sortOrder) => {

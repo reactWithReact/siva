@@ -63,6 +63,17 @@ button:focus-visible {
 svg{
   color:black;
 }
+.apexcharts-tooltip {
+  background: white;
+  color: black;
+}
+.myRect,.label{
+  cursor:pointer;
+}
+
+g.tick line, .domain{
+  stroke:#fff;
+}
 
 `;
 

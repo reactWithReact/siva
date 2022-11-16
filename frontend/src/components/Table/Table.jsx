@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
-import styled from "styled-components";
 import { ButtonWrapper, Label } from "../../GlobalStyles";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import PageNavigator from "../PageNavigator/PageNavigator";

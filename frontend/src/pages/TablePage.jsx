@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
+import Card from "../components/Card/Card";
+
 import ManagerSelect from "../components/ManagerSelect/ManagerSelect";
 import Table from "../components/Table/Table";
 import { TextWrapper } from "../components/Table/Table.style";
@@ -11,7 +13,7 @@ import {
   Action_ToggleSelectAll,
 } from "../context/TablePageContext/TableActions";
 import { TableStoreContext } from "../context/TablePageContext/TableStore";
-import { Page, PageContainer } from "./pages.style";
+import { Page, PageContainer } from "./Pages.style";
 
 // This is the page aka the parent component for every single component that is being rendered for the table including
 // Manager Id selector, Table component , Download button etc..
@@ -29,23 +31,29 @@ const TablePage = () => {
     totalPages,
     tableDispatch,
     records,
-  } = useContext(TableStoreContext);
+    filteredByBusinessUnitData,
 
+  } = useContext(TableStoreContext);
+  const f = {}
   // setting up data for the CSV file that'll be downloaded
 
   return (
     <Page>
       <PageContainer>
         <PageLayout>
+
           <TextWrapper>
             <h1>Customer Data</h1>
           </TextWrapper>
-
           <ManagerSelect />
+          {
+            !!sortableData.length && <Card />
+          }
+
           {selectedFields.length > 0 ? (
             <>
               <Table
-                sortableData={sortableData}
+                sortableData={!!filteredByBusinessUnitData.length ? filteredByBusinessUnitData : sortableData}
                 selectedFields={selectedFields}
                 currentPage={currentPage}
                 totalPages={totalPages}

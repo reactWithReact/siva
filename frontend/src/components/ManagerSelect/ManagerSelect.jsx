@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { getCustomers } from "../../APIs/ManagerAPI";
+import { ChartStoreContext } from "../../context/ChartContext/ChartStore";
 import { TableStoreContext } from "../../context/TablePageContext/TableStore";
 import DropDown from "../DropDown/DropDown";
 const ManagerIds = [
@@ -54,6 +55,8 @@ const ManagerSelect = () => {
   const [currentId, setCurrentId] = useState({ label: "Select an ID" });
   // dispatch is required to make any changes to global state
   const { tableDispatch } = useContext(TableStoreContext);
+  const {chartDispatch} = useContext(ChartStoreContext)
+
 
   const managerIdSelectHandler = (data) => {
     setCurrentId(data);
@@ -63,7 +66,7 @@ const ManagerSelect = () => {
     // Because Actions cannot be Asynchronous Functions as reducer doesn't awaits for them
     // and making an api call is an asynchronous, so we'll just make the api call from here and when it's resolved
     // we'll dispatch an action from there as it's much more cleaner this way
-    getCustomers(data.value, tableDispatch);
+    getCustomers(data.value, tableDispatch, chartDispatch);
   };
 
   return (

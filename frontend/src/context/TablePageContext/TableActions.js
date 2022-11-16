@@ -2,7 +2,7 @@
 // Actions are just functions responsible for making change to any state that can be accessed by tableStore.
 // Actions return an anonymous function which will be called in the reducer function of tableContext's useReducer hook
 
-import { getColumns } from "../../utils/getColumns";
+import { getColumns } from "../../utils/GetColumns";
 
 // Handling what happens when someone clicks on a dropdown option
 // takes the the clicked filed and toggles it's hidden state,
@@ -48,8 +48,6 @@ export const Action_SetFields = (fields) => {
   };
 };
 export const Action_SetData = (data) => {
-  console.log("called");
-
   return (state) => {
     const columns = getColumns(Object.keys(data[0] ?? {}));
     return {
@@ -78,25 +76,49 @@ export const Action_SetTotalPages = (totalPages) => {
 
 export const Action_SetRecords = (records) => {
   return (state) => {
-    const totalPages = Math.ceil(state.sortableData.length / records);
+    const totalPages = Math.ceil(!!state.filteredByBusinessUnitData.length ? state.filteredByBusinessUnitData.length/ records : state.sortableData.length/records);
     const currentPage =
       totalPages < state.currentPage ? totalPages : state.currentPage;
     return { ...state, records, totalPages, currentPage };
   };
 };
 
+
+export const Action_SetFilteredByBusinessUnitData=(businessUnit)=>{
+
+  return(state)=>{
+    const filteredByBusinessUnitData = state.sortableData.filter((data,i)=>data.businessUnit === businessUnit);
+    const totalPages = Math.ceil(filteredByBusinessUnitData.length / state.records);
+    return {
+      ...state, 
+      filteredByBusinessUnitData,
+      totalPages,
+      currentPage:1
+    }
+  };
+};
+
+
 // for sorting the table
 export const Action_SortData = (sortField, sortOrder) => {
   // tabledata and settable data cme start state
   return (state) => {
     if (!sortField) return state;
-    const sortableData = state.sortableData.sort((a, b) => {
+    const data = !!state.filteredByBusinessUnitData.length ? state.filteredByBusinessUnitData : state.sortableData;
+    const sortableData = data.sort((a, b) => {
       return (
         a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
           numeric: true,
         }) * (sortOrder === "asc" ? 1 : -1)
       );
     });
-    return { ...state, sortableData };
+    return { ...state, filteredByBusinessUnitData: data  , sortableData: data};
   };
 };
+
+
+
+
+
+
+

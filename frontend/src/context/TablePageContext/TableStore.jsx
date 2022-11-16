@@ -22,6 +22,8 @@ const initialState = {
   totalPages: 0,
   records: 4,
   dataFound: true,
+  filteredByBusinessUnitData:[],
+
 };
 const tableStoreReducer = (state, action) => {
   try {
@@ -33,11 +35,11 @@ const tableStoreReducer = (state, action) => {
     return initialState;
   }
 };
-
 // This is the initial state of the app and also gives an idea of what data will be available throughtout the page
 const TableStore = ({ children }) => {
   // The reducer hook will contain all the state which can be accessed throught the table page
   const [state, tableDispatch] = useReducer(tableStoreReducer, initialState);
+ 
 
   return (
     <TableStoreContext.Provider value={{ ...state, tableDispatch }}>

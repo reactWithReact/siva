@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Page = styled.main`
   position: relative;
   flex: none;
-  min-height: 100vh;
+ 
   color: white;
   padding-bottom: 5rem;
 `;

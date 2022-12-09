@@ -5,3 +5,11 @@ MONGO_USER=<userName>
   ```
 MONGO_PASSWORD=<password>
 ```
+
+
+## Run Server
+
+```
+npm run dev
+
+```

@@ -7,12 +7,12 @@ const Manager = require("../model/accountModel");
 const getAccount = async (req, res) => {
   console.log("request for account");
   try {
-    const  {dashboardData, customerData} = await Manager.findOne(
+    const { dashboardData, customerData } = await Manager.findOne(
       { managerId: req.params.managerId },
     );
-//  const {dashboardData, customerData} =manager
- 
-    res.send({dashboardData, customerData});
+    //  const {dashboardData, customerData} =manager
+
+    res.send({ dashboardData, customerData });
   } catch (error) {
     console.log(`error: ${error.message}`);
     res.send([]);

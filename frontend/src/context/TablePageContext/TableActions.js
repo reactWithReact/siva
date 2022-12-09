@@ -110,6 +110,20 @@ export const Action_EmptyFilteredBusinessUnitData=()=>{
   };
 };
 
+
+
+// set supermanagerdata
+
+export const Action_Set_SuperManagerData= (data)=>{
+  return(state)=>{
+    return {
+      ...state,
+      superManagersData:data
+    }
+  }
+};
+
+
 // for sorting the table
 export const Action_SortData = (sortField, sortOrder) => {
   // tabledata and settable data cme start state

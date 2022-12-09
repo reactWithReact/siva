@@ -2,6 +2,8 @@ import GlobalStyles from "./GlobalStyles";
 import TablePage from "./pages/TablePage";
 import TableStore from "./context/TablePageContext/TableStore";
 import ChartStore from "./context/ChartContext/ChartStore";
+import { Routes, Route } from 'react-router-dom';
+import { SuperManagersData } from "./components/SuperManagersData/SuperManagersData";
 
 // Global styles
 // The Context for Sharing reactive state beteween components
@@ -12,9 +14,12 @@ function App() {
     <div>
       <GlobalStyles />
       <TableStore>
-       <ChartStore>
-        <TablePage />
-       </ChartStore>
+        <ChartStore>
+          <Routes >
+            <Route path="/" element={<TablePage />} />
+            <Route path="/superManagersData" element={<SuperManagersData />} />
+          </Routes>
+        </ChartStore>
       </TableStore>
     </div>
   );

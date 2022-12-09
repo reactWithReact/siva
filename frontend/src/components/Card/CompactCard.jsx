@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import React, { useContext } from 'react';
 import { getSign } from '../../utils/GetSign';
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
 import { CardWrapper, ChartSelectionWrapper } from './Card.style';
 import { chartTypeData } from '../../Data/HelperData';
-import { CardDetails } from '../CardDetails';
+import { CardDetails } from '../CardDetails/CardDetails';
 import { ChartStoreContext } from '../../context/ChartContext/ChartStore';
 
 export default function CompactCard({ onChartType }) {

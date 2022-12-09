@@ -5,3 +5,4 @@ const { getAccount } = require("../controller/accountController");
 router.get("/:managerId",getAccount);
 
 module.exports = router;
+

@@ -5,12 +5,14 @@ import Card from "../components/Card/Card";
 import ManagerSelect from "../components/ManagerSelect/ManagerSelect";
 import Table from "../components/Table/Table";
 import { TextWrapper } from "../components/Table/Table.style";
+import { Link } from 'react-router-dom';
 import {
   Action_SetPage,
   Action_SetRecords,
   Action_SortData,
   Action_ToggleField,
   Action_ToggleSelectAll,
+
 } from "../context/TablePageContext/TableActions";
 import { TableStoreContext } from "../context/TablePageContext/TableStore";
 import { Page, PageContainer } from "./Pages.style";
@@ -23,6 +25,7 @@ import { Page, PageContainer } from "./Pages.style";
 // !CHANGED: put the page navigator inside the table component
 // !CHANGED: put the Serach Records inside the table component
 // !CHANGED: passing the click handlers directly as props instead of dispatch and actions
+
 const TablePage = () => {
   const {
     selectedFields,
@@ -31,11 +34,9 @@ const TablePage = () => {
     totalPages,
     tableDispatch,
     records,
-    filteredByBusinessUnitData,
+    filteredByBusinessUnitData
 
   } = useContext(TableStoreContext);
-  const f = {}
-  // setting up data for the CSV file that'll be downloaded
 
   return (
     <Page>
@@ -44,6 +45,16 @@ const TablePage = () => {
 
           <TextWrapper>
             <h1>Customer Data</h1>
+            <Link to='/supermanagersdata' target={'_blank'}
+              style={{
+                display: 'inline-block',
+                padding: 10,
+                marginTop: 10,
+                borderRadius: 10,
+                color: 'white',
+                border: '2px solid white'
+              }}
+            >superManagersData</Link>
           </TextWrapper>
           <ManagerSelect />
           {
@@ -78,7 +89,9 @@ const TablePage = () => {
             <TextWrapper>
               <h3>Select a Manager Id</h3>
             </TextWrapper>
+
           )}
+
         </PageLayout>
       </PageContainer>
     </Page>

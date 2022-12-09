@@ -14,16 +14,11 @@ export const QUERY_MANAGER = (managerId)=>( {
             customerId
             firstName
             lastName
-            birthDate
-            gender
-            picture
             businessUnit
-            churnRisk
-            openSales
             revenueYTD
             costYTD
-            bonusEligible
-            meetingsYTD
+            churnRisk
+            openSales
     }
   }`,
     variables: {}
@@ -33,19 +28,14 @@ export const QUERY_MANAGER = (managerId)=>( {
   export const QUERY_SUPERMANGERS = ()=>({
     query: `query{
         superManagerData{
-            customerId
-            firstName
-            lastName
-            birthDate
-            gender
-            picture
-            businessUnit
-            churnRisk
-            openSales
-            revenueYTD
-            costYTD
-            bonusEligible
-            meetingsYTD
+          customerId
+          firstName
+          lastName
+          businessUnit
+          revenueYTD
+          costYTD
+          churnRisk
+          openSales
     }
   }`,
     variables: {}
